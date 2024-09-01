@@ -1,5 +1,6 @@
-#start a .venv python evironment in vscode
-    then start the python development
+# start a .venv python evironment in vscode
+
+then start the python development
 
 
 # how to run fastapi files
