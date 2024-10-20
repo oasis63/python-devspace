@@ -1,3 +1,7 @@
+import json
+import re
+
+
 class Person:
   def __init__(self, name, age):
     self.name = name
@@ -24,3 +28,18 @@ class Student(Person):
   
 s1 = Student("Stud", 12,2019)
 s1.printPerson()
+
+print(s1)
+
+
+l1 = ['faslj', 4324,'wowo']
+print(json.dumps(l1))
+
+
+txt = "The rain in Spain"
+x = re.search("^The.*Spain$", txt)
+
+if x:
+  print("YES! We have a match!")
+else:
+  print("No match")
