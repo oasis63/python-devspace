@@ -1,9 +1,10 @@
+import string
+from typing import List
 import cohere
 import os
 import numpy as np
 from dotenv import load_dotenv
 from sklearn.metrics.pairwise import cosine_similarity
-from pymilvus import connections, Collection, FieldSchema, CollectionSchema, DataType
 
 load_dotenv()
 
@@ -18,16 +19,21 @@ COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 # Initialize the Cohere client with your API key
 co = cohere.Client(COHERE_API_KEY)
 
+
+def create_embeddings(texts: List[str]):
+    # Generate embeddings for the texts
+    response = co.embed(texts=texts)
+    embeddings = response.embeddings
+    return embeddings
+
+
 # Define the texts you want to embed
 texts = [
     "The quick brown fox jumps over the lazy dog.",
     "Natural language processing is a fascinating field.",
 ]
 
-# Generate embeddings for the texts
-response = co.embed(texts=texts)
-embeddings = response.embeddings
-
+embeddings = create_embeddings(texts)
 # Print the embedding for the first sentence
 print("Embedding for Sentence 1:", embeddings[0])
 
