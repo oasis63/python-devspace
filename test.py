@@ -31,7 +31,14 @@ async def get_model(model_name: ModelName):
 
 
 
+fake_items_db = [{"item_name": "Foo"}, {"item_name": "Bar"}, {"item_name": "Baz"}]
+
+
+@app.get("/items2/")
+async def read_item2(skip: int = 0, limit: int = 10):
+    return fake_items_db[skip : skip + limit]
+
 # swagger 
 # http://127.0.0.1:8000/docs
 
-# http://127.0.0.1:8000/redoc
+# http://127.0.0.1:8000/redoctokens

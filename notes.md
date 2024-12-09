@@ -1,3 +1,8 @@
+# how to start python virtual environment 
+
+source ./.venv/bin/activate
+
+
 # start a .venv python evironment in vscode
 
 then start the python development
